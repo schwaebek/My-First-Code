@@ -46,11 +46,7 @@
 - (void)viewDidLoad
 {
     
-    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    
     
     int screenHeight = [UIScreen mainScreen].bounds.size.height;
     int screenWidth = [UIScreen mainScreen].bounds.size.width;
@@ -58,163 +54,103 @@
     UIButton * resetButton = [[UIButton alloc] initWithFrame: CGRectMake(10.0, 450.0, screenWidth - 20.0, 50.0)];
     [resetButton setTitle:@"RESET" forState:UIControlStateNormal];
     resetButton.backgroundColor = [UIColor colorWithRed:0.239f green:0.239f blue:0.239f alpha:1.0f];
-    
     resetButton.layer.cornerRadius = 10.0;
-    
     [resetButton addTarget:self action:@selector(resetButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:resetButton];
     
     UIButton * greenButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0, 280.0,  50.0, 50.0)];
     [greenButton setTitle:@"" forState:UIControlStateNormal];
     greenButton.backgroundColor = [UIColor colorWithRed:0.243f green:0.973f blue:0.329f alpha:1.0f];
-    
     greenButton.layer.cornerRadius = 25.0;
-    
     [greenButton addTarget:self action:@selector(greenButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:greenButton];
     
     UIButton * redButton = [[UIButton alloc] initWithFrame:CGRectMake(48.0, 280.0,  120.0, 113.0)];
     [redButton setTitle:@"" forState:UIControlStateNormal];
     //redButton.backgroundColor = [UIColor colorWithRed:0.996f green:0.059f blue:0.259f alpha:1.0f];
-    
     //redButton.layer.cornerRadius = 25.0;
     redButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"everythingGuy5"]];
-    
     [redButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
     [self.view addSubview:redButton];
     
     UIButton * yellowButton = [[UIButton alloc] initWithFrame:CGRectMake(135.0, 280.0,  50.0, 50.0)];
     [yellowButton setTitle:@"" forState:UIControlStateNormal];
     yellowButton.backgroundColor = [UIColor colorWithRed:0.980f green:0.902f blue:0.322f alpha:1.0f];
-    
     yellowButton.layer.cornerRadius = 25.0;
-    
     [yellowButton addTarget:self action:@selector(yellowButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:yellowButton];
     
     UIButton * orangeButton = [[UIButton alloc] initWithFrame:CGRectMake(200.0, 280.0,  50.0, 50.0)];
     [orangeButton setTitle:@"" forState:UIControlStateNormal];
     orangeButton.backgroundColor = [UIColor colorWithRed:0.996f green:0.337f blue:0.173f alpha:1.0f];
-    
     orangeButton.layer.cornerRadius = 25.0;
-    
     [orangeButton addTarget:self action:@selector(orangeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:orangeButton];
     
     UIButton * purpleButton = [[UIButton alloc] initWithFrame:CGRectMake(265.0, 280.0,  50.0, 50.0)];
     [purpleButton setTitle:@"" forState:UIControlStateNormal];
     purpleButton.backgroundColor = [UIColor colorWithRed:0.451f green:0.161f blue:0.937f alpha:1.0f];
-    
     purpleButton.layer.cornerRadius = 25.0;
-    
     [purpleButton addTarget:self action:@selector(purpleButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:purpleButton];
     
     UIButton * loginButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0, screenHeight - 60.0, screenWidth - 20.0, 50.0)];
     [loginButton setTitle:@"LOGIN" forState:UIControlStateNormal];
     loginButton.backgroundColor = [UIColor colorWithRed:0.427f green:0.890f blue:0.988f alpha:1.0f];
-    
     loginButton.layer.cornerRadius = 10.0;
-    
     [loginButton addTarget:self action:@selector(loginButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:loginButton];
     
+    
+    
     usernameField = [[UITextField alloc] initWithFrame: CGRectMake(10.0, 30.0, screenWidth - 20.0, 50.0)];
-    
     usernameField.backgroundColor = [UIColor whiteColor];
-    
     usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    usernameField.placeholder = @"username";
-    
+    usernameField.placeholder = @"Enter Username";
     usernameField.delegate = self;
-    
     usernameField.textColor = [UIColor colorWithRed:0.055f green:0.490f blue:0.694f alpha:1.0f];
-    
     [self.view addSubview:usernameField];
-    
     usernameField.layer.cornerRadius = 10.0;
     
     NSLog(@"view did load");
     
     passwordField = [[UITextField alloc] initWithFrame: CGRectMake(10.0, 90.0, screenWidth - 20.0, 50.0)];
-    
     passwordField.backgroundColor = [UIColor whiteColor];
-    
     passwordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    passwordField.placeholder = @"password";
-    
+    passwordField.placeholder = @"Enter Password";
     passwordField.delegate = self;
     passwordField.secureTextEntry = YES;
-    
     [self.view addSubview:passwordField];
-    
     passwordField.layer.cornerRadius = 10.0;
-    
     passwordField.textColor = [UIColor colorWithRed:0.055f green:0.490f blue:0.694f alpha:1.0f];
-    
-    
     
     NSLog(@"view did load");
     
     emailField = [[UITextField alloc] initWithFrame: CGRectMake(10.0, 150.0, screenWidth - 20.0, 50.0)];
-    
     emailField.backgroundColor = [UIColor whiteColor];
-    
     emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     emailField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    emailField.placeholder = @"email";
-    
+    emailField.placeholder = @"Enter Email";
     emailField.delegate = self;
-    
     [self.view addSubview:emailField];
-    
     emailField.layer.cornerRadius = 10.0;
-    
     emailField.textColor = [UIColor colorWithRed:0.055f green:0.490f blue:0.694f alpha:1.0f];
-    
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
-    
-    
     
     NSLog(@"view did load");
     
     phoneField = [[UITextField alloc] initWithFrame: CGRectMake(10.0, 210.0, screenWidth - 20.0, 50.0)];
-    
     phoneField.backgroundColor = [UIColor whiteColor];
-    
     phoneField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    phoneField.placeholder = @"phone";
-    
+    phoneField.placeholder = @"Enter Phone";
     phoneField.delegate = self;
-    
     [self.view addSubview:phoneField];
-    
     phoneField.layer.cornerRadius = 10.0;
-    
     phoneField.textColor = [UIColor colorWithRed:0.055f green:0.490f blue:0.694f alpha:1.0f];
-    
     phoneField.keyboardType = UIKeyboardTypeNumberPad;
-    
     
     NSLog(@"view did load");
     
@@ -318,6 +254,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 
+}
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 /*
